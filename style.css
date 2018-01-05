@@ -1,0 +1,31 @@
+/*
+Theme Name: 
+Theme URI: 
+Description: 
+Author: 
+Author URI: 
+Version: 1.0.0
+Template: habakiri
+*/
+
+body {
+	position: relative;
+	font-family: Arial, Sans-Serif;
+	font-weight: 200;
+	-webkit-font-kerning: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Roboto", "Droid Sans", "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+	line-height: 1.8;
+	font-weight: 500;
+	color: #666;
+	font-size: 16px;
+}
+.serif {
+	font-family: "Roboto", "Droid Sans", "游明朝", "YuMincho", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+.text-shadow {
+	text-shadow: -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000;
+}
+.site-branding {
+	padding: 10px 0;
+}
