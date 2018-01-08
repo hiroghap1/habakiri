@@ -76,7 +76,7 @@ function habakiri_child_theme_setup(){
 }
 add_action('after_setup_theme','habakiri_child_theme_setup');
 
-
+if(!function_exists('is_mobile')):
 function is_mobile() {
     $useragents = array(
         'iPhone',          // iPhone
