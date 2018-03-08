@@ -76,7 +76,7 @@ function habakiri_child_theme_setup(){
 }
 add_action('after_setup_theme','habakiri_child_theme_setup');
 
-if(!function_exists('is_mobile')):
+if(!function_exists('is_mobile')) {
 function is_mobile() {
     $useragents = array(
         'iPhone',          // iPhone
@@ -95,7 +95,7 @@ function is_mobile() {
     );
     $pattern = '/'.implode('|', $useragents).'/i';
     return preg_match($pattern, $_SERVER['HTTP_USER_AGENT']);
-}
+}}
 
 
 function add_scripts() {
