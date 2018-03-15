@@ -8,7 +8,7 @@ function habakiri_child_theme_setup(){
 		}
 		
 		public function habakiri_theme_mods_defaults( $pre_defaults ) {
-			$defaults = shotcode_atts(
+			$defaults = shotcode_atts( //カスタマイザー設定
 				$pre_defaults,
 				array(
 					'logo'                             => '',
@@ -76,7 +76,7 @@ function habakiri_child_theme_setup(){
 }
 add_action('after_setup_theme','habakiri_child_theme_setup');
 
-if(!function_exists('is_mobile')) {
+if(!function_exists('is_mobile')) { //モバイル判別
 function is_mobile() {
     $useragents = array(
         'iPhone',          // iPhone
@@ -98,15 +98,29 @@ function is_mobile() {
 }}
 
 
-function add_scripts() {
+function add_scripts() { //トップページのみmain.jsを読み込み
  if ( is_home() || is_front_page() ) {
 	 wp_enqueue_script( 'main', get_stylesheet_directory_uri() . '/js/main.js', array( 'jquery' ), '20170505', true );
 }
 }
 add_action('wp_print_scripts', 'add_scripts');
 
+function tag_manager_head() { //タグマネージャーhead内
+	$tag_manager_head = "<!-- Google Tag Manager --> //ここにコピペ
+<!-- End Google Tag Manager -->";
+	echo $tag_manager_head;
+}
+add_action('wp_head','tag_manager_head');
 
-function my_habakiri_title_class_in_page_header( $class ) {
+function tag_manager_body() { //タグマネージャーbody内
+	$tag_manager_body = '<!-- Google Tag Manager (noscript) --> //ここにコピペ
+<!-- End Google Tag Manager (noscript) -->';
+	echo $tag_manager_body;
+}
+add_action('habakiri_before_container','tag_manager_body');
+
+
+function my_habakiri_title_class_in_page_header( $class ) { //ヘッダーにclass付与
 if ( is_home() || is_front_page() ) {
 	$class = 'page-header__home';
 } else {
@@ -116,7 +130,7 @@ if ( is_home() || is_front_page() ) {
 }
 add_filter( 'habakiri_title_class_in_page_header', 'my_habakiri_title_class_in_page_header' );
 
-function my_habakiri_copyright( $copyright ) {
+function my_habakiri_copyright( $copyright ) { //コピーライト書き換え
 	$copyright = '&copy;  All Rights Reserved.';
 	return $copyright;
 }
